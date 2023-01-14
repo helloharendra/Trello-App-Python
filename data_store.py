@@ -35,7 +35,7 @@ class DataStore:
 
     def get_boards(self) -> list["Board"]:
         db = self.connect()
-        result =  db.query(BoardData).all()
+        result =db.query(BoardData).all()
         db.close()
         return result
 
