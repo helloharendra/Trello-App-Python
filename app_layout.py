@@ -39,7 +39,7 @@ class AppLayout(Row):
         self.page.on_resize = self.page_resize
         self.store: DataStore = store
         self.toggle_nav_rail_button = IconButton(
-            icon=icons.ARROW_CIRCLE_LEFT, icon_color=colors.BLUE_GREY_400, selected=False,
+            icon=icons.ARROW_CIRCLE_LEFT, icon_color=colors.BLUE_GREY_800, selected=False,
             selected_icon=icons.ARROW_CIRCLE_RIGHT, on_click=self.toggle_nav_rail)
         self.sidebar = Sidebar(self, self.store, page)
         self.members_view = Text("members view")
@@ -56,8 +56,8 @@ class AppLayout(Row):
                         on_click=self.app.add_board,
                         style=ButtonStyle(
                             bgcolor={
-                                "": colors.BLUE_200,
-                                "hovered": colors.BLUE_400
+                                "": colors.BLUE_600,
+                                "hovered": colors.BLUE_800
                             },
                             shape={
                                 "": RoundedRectangleBorder(radius=3)
