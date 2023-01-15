@@ -21,7 +21,7 @@ class InMemoryStore(DataStore):
         return self.boards[board_id]
 
     def update_board(self, board: "Board", update: dict):
-        for k in update:
+        for k in dict:
             setattr(board, k, update[k])
 
     def get_boards(self):
