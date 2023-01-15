@@ -25,6 +25,7 @@ from flet import (
     theme,
     margin,
     TemplateRoute,
+
 )
 
 
@@ -45,11 +46,11 @@ class TrelloApp(UserControl):
         self.appbar = AppBar(
             leading=Icon(icons.GRID_GOLDENRATIO_ROUNDED),
             leading_width=100,
-            title=Text(f"Trolli", font_family="Pacifico",
+            title=Text(f"Trolli App", font_family="Pacifico",
                        size=32, text_align="start"),
             center_title=False,
             toolbar_height=75,
-            bgcolor=colors.LIGHT_BLUE_ACCENT_700,
+            bgcolor=colors.BLUE_900,
             actions=[
                 Container(
                     content=PopupMenuButton(
@@ -77,7 +78,8 @@ class TrelloApp(UserControl):
                     self.layout
                 ],
                 padding=padding.all(0),
-                bgcolor=colors.BLUE_GREY_200
+                
+                bgcolor=colors.BLUE_GREY_400
             )
         )
         self.page.update()
@@ -155,14 +157,14 @@ class TrelloApp(UserControl):
         dialog_text = TextField(label="New Board Name",
                                 on_submit=close_dlg, on_change=textfield_change)
         create_button = ElevatedButton(
-            text="Create", bgcolor=colors.BLUE_500, on_click=close_dlg, disabled=True)
+            text="Create", bgcolor=colors.GREEN_900, on_click=close_dlg, disabled=True)
         dialog = AlertDialog(
             title=Text("Name your new board"),
             content=Column([
                 dialog_text,
                 Row([
                     ElevatedButton(
-                        text="Cancel", on_click=close_dlg),
+                        text="Cancel",bgcolor=colors.RED, on_click=close_dlg),
                     create_button
                 ], alignment="spaceBetween")
             ], tight=True),
@@ -178,6 +180,7 @@ class TrelloApp(UserControl):
         new_board = Board(self, self.store, board_name)
         self.store.add_board(board_name)
         self.layout.hydrate_all_boards_view()
+        
 
     def delete_board(self, e):
         self.store.remove_board(e.control.data)
@@ -197,6 +200,7 @@ if __name__ == "__main__":
             "Pacifico": "/Pacifico-Regular.ttf"
         }
         page.bgcolor = colors.BLUE_GREY_200
+        page.color=colors.WHITE
 
         app = TrelloApp(page, DataStore())
         page.add(app)

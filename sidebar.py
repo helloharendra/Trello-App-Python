@@ -46,9 +46,9 @@ class Sidebar(UserControl):
             label_type="all",
             on_change=self.top_nav_change,
             destinations=self.top_nav_items,
-            bgcolor=colors.BLUE_GREY,
             extended=True,
-            height=110
+            height=110,
+            bgcolor=colors.ORANGE_900
         )
         self.bottom_nav_rail = NavigationRail(
             selected_index=None,
@@ -56,7 +56,8 @@ class Sidebar(UserControl):
             on_change=self.bottom_nav_change,
             extended=True,
             expand=True,
-            bgcolor=colors.BLUE_GREY,
+            bgcolor=colors.ORANGE_900,
+
         )
         self.toggle_nav_rail_button = IconButton(icons.ARROW_BACK)
 
@@ -68,7 +69,7 @@ class Sidebar(UserControl):
                 ], alignment="spaceBetween"),
                 # divider
                 Container(
-                    bgcolor=colors.BLACK26,
+                    bgcolor=colors.WHITE,
                     border_radius=border_radius.all(30),
                     height=1,
                     alignment=alignment.center_right,
@@ -77,7 +78,7 @@ class Sidebar(UserControl):
                 self.top_nav_rail,
                 # divider
                 Container(
-                    bgcolor=colors.BLACK26,
+                    bgcolor=colors.WHITE,
                     border_radius=border_radius.all(30),
                     height=1,
                     alignment=alignment.center_right,
@@ -89,7 +90,7 @@ class Sidebar(UserControl):
             margin=margin.all(0),
             width=250,
             expand=True,
-            bgcolor=colors.BLUE_GREY,
+            bgcolor=colors.ORANGE_900,
             visible=self.nav_rail_visible,
         )
         return self.view

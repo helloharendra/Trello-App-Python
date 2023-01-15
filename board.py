@@ -98,7 +98,7 @@ class Board(UserControl):
             color_options.data = e.control.data
             for k, v in option_dict.items():
                 if k == e.control.data:
-                    v.border = border.all(3, colors.BLACK26)
+                    v.border = border.all(3, colors.WHITE)
                 else:
                     v.border = None
             dialog.content.update()
@@ -128,7 +128,7 @@ class Board(UserControl):
         dialog_text = TextField(label="New List Name",
                                 on_submit=close_dlg, on_change=textfield_change)
         create_button = ElevatedButton(
-            text="Create", bgcolor=colors.BLUE_200, on_click=close_dlg, disabled=True)
+            text="Create", bgcolor=colors.GREEN_900, on_click=close_dlg, disabled=True)
         dialog = AlertDialog(
             title=Text("Name your new list"),
             content=Column([
