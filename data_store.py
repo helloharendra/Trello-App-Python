@@ -4,6 +4,8 @@ if TYPE_CHECKING:
     from board_list import BoardList
     from user import User
     from item import Item
+    from database_orm import BoardData
+    
 
 from sqlalchemy.orm import sessionmaker
 from database_orm import BoardData,ListItems,Taskcard
@@ -35,9 +37,13 @@ class DataStore:
 
     def get_boards(self) -> list["Board"]:
         db = self.connect()
-        result =db.query(BoardData).all()
+        boards = db.query(BoardData).all()
+        # for boards in board:
+        #     print(boards.board_name,boards.board_id)
+        # obj=db.query(BoardData).select_from(BoardData).get(all)
+        # obj=db.SELECT(Board).where(BoardData.c.board_id==1)
         db.close()
-        return result
+        return boards
 
     def update_board(self, model, update):
         raise NotImplementedError

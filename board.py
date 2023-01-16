@@ -31,7 +31,7 @@ class Board(UserControl):
         self.board_id = next(Board.id_counter)
         self.store: DataStore = store
         self.app = app
-        self.name = name
+        self.board_name = name
         self.add_list_button = FloatingActionButton(
             icon=icons.ADD, text="add a list", height=30, on_click=self.create_list)
 
