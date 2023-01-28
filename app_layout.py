@@ -154,8 +154,9 @@ class AppLayout(Row):
 
     def board_click(self, e):
         self.sidebar.bottom_nav_change(
+            self.store.get_board(Board))
             
-            self.store.get_boards().index(e.control.data))
+            # self.store.get_boards().index(e.control.data))
 
     def toggle_nav_rail(self, e):
         self.sidebar.visible = not self.sidebar.visible
